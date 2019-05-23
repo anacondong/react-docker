@@ -5,13 +5,13 @@ FROM node:9.11
 RUN mkdir /usr/src/app
 WORKDIR /usr/src/app
 
-# add `/usr/src/app/node_modules/.bin` to $PATH
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
 # install and cache app dependencies
-COPY package.json /usr/src/app/package.json
+COPY package.json /usr/src/app/
 RUN npm install
-RUN npm install react-scripts -g
+
+ADD src /usr/src/app/src
+ADD public /usr/src/app/public
 
 # start app
-CMD ["npm", "start"]
+CMD ["npm", "run","start", "build"]
+EXPOSE 3000
