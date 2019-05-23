@@ -13,5 +13,5 @@ ADD src /usr/src/app/src
 ADD public /usr/src/app/public
 
 # start app
-CMD ["npm", "run","start", "build"]
+CMD ["npm", "run", "start"]
 EXPOSE 3000
